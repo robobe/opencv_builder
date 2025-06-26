@@ -67,3 +67,33 @@ target_link_libraries(simple PRIVATE ${OpenCV_LIBS})
 cmake -S src -B build
 cmake --build build
 ```
+
+---
+
+## Check with other docker version
+
+```bash
+docker run \
+-it --rm \
+--hostname=run \
+--net=host \
+-v ./debs:/debs \
+--gpus all \
+nvidia/cuda:12.6.0-cudnn-runtime-ubuntu22.04 \
+/bin/bash
+```
+
+```bash
+apt update
+cd debs
+apt install python3-numpy
+apt install ./*.deb
+```
+
+```bash
+>>> import cv2
+>>> cv2.__version__
+'4.10.0'
+>>> cv2.cuda.getCudaEnabledDeviceCount()
+1
+```
