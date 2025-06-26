@@ -19,3 +19,51 @@ The process has there steps (declare as vscode tasks):
      
 
 ### Check
+
+Run docker again
+
+```
+sudo apt update
+from debs folder 
+sudo apt install ./*.deb
+```
+
+```bash title="python"
+>>> import cv2
+>>> cv2.__version__
+'4.10.0'
+>>> cv2.cuda.getCudaEnabledDeviceCount()
+1
+```
+
+#### Check using cpp
+
+Build simple load and view image 
+
+```bash
+g++ simple.cpp -o simple `pkg-config --cflags --libs opencv4` -I/usr/include/opencv4/
+```
+
+#### Demo: using cmake
+
+!!! note ""
+     The `CMakeLists.txt` file in the same location as the source
+
+```c
+cmake_minimum_required(VERSION 3.10)
+project(simple_opencv_example)
+
+find_package(OpenCV REQUIRED)
+
+add_executable(simple simple.cpp)
+target_include_directories(simple PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(simple PRIVATE ${OpenCV_LIBS})
+```
+
+
+
+```bash
+# from project root
+cmake -S src -B build
+cmake --build build
+```
