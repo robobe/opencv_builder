@@ -1,7 +1,9 @@
-version="4.10.0"
-folder="opencv"
+#!/bin/sh
 
-cd opencv-${version}/build
+VERSION=$1
+FOLDER=$2
+
+cd $FOLDER/opencv/opencv-${VERSION}/build
 cmake \
 -D WITH_CUDA=ON \
 -D WITH_CUDNN=ON \
@@ -12,7 +14,7 @@ cmake \
 -D ENABLE_FAST_MATH=1 \
 -D CUDA_FAST_MATH=1 \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
--D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.10.0/modules \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${VERSION}/modules \
 -D WITH_GSTREAMER=OFF \
 -D WITH_LIBV4L=ON \
 -D BUILD_opencv_python3=ON \
@@ -29,8 +31,8 @@ cmake \
 -D CPACK_BINARY_DEB=ON \
 -D BUILD_JAVA=OFF \
 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages \
--D CPACK_PACKAGE_VERSION=4.10.0 \
--D CPACK_DEBIAN_PACKAGE_VERSION=4.10.0-1 \
+-D CPACK_PACKAGE_VERSION=${VERSION} \
+-D CPACK_DEBIAN_PACKAGE_VERSION=${VERSION}-1 \
 ..
 
 make -j8

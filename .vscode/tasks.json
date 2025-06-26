@@ -6,22 +6,50 @@
             "label": "Download and extract",
             "type": "shell",
             "options": {
-                "cwd": "#{w${workspaceFolder}/scripts"
+                "cwd": "${workspaceFolder}/scripts"
             },
-            "command": "download_and_extract",
+            "command": "./download_and_extract.sh",
             "args": [
-                "${input:selectCommand}"
+                "${input:opencv_version}",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "command": "./build.sh",
+            "args": [
+                "${input:opencv_version}",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Pack",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "command": "./pack.sh",
+            "args": [
+                "${input:opencv_version}",
+                "${workspaceFolder}"
             ],
             "problemMatcher": []
         }
+
     ],
     "inputs": [
         {
             "id": "opencv_version",
             "type": "pickString",
             "options": [
-                "4.10",
-                "4.11"
+                "4.10.0",
+                "4.11.0"
             ],
             "description": "Select opencv vesion",
             "default": "4.10"
