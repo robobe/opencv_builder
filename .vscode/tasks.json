@@ -40,6 +40,19 @@
                 "${workspaceFolder}"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "Publish",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "command": "./copy.sh",
+            "args": [
+                "${input:opencv_version}",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
         }
 
     ],

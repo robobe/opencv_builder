@@ -33,6 +33,7 @@ cmake \
 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3/dist-packages \
 -D CPACK_PACKAGE_VERSION=${VERSION} \
 -D CPACK_DEBIAN_PACKAGE_VERSION=${VERSION}-1 \
+-D OPENCV_VERSION=${VERSION} \
 ..
 
 make -j8
