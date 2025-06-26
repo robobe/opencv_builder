@@ -16,6 +16,20 @@
             "problemMatcher": []
         },
         {
+            "label": "Configure",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "command": "./build.sh",
+            "args": [
+                "${input:opencv_version}",
+                "${workspaceFolder}",
+                "true"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "Build",
             "type": "shell",
             "options": {

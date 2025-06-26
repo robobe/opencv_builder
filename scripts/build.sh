@@ -1,7 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 VERSION=$1
 FOLDER=$2
+ONLY_CONFIGUTE="false"
+if [ $# -eq 3 ]; then
+    ONLY_CONFIGUTE=$3
+fi
+
 
 cd $FOLDER/opencv/opencv-${VERSION}/build
 cmake \
@@ -26,7 +31,7 @@ cmake \
 -D WITH_QT=ON \
 -D WITH_GTK=ON \
 -D WITH_VTK=OFF \
--D WITH_FFMPEG=OFF \
+-D WITH_FFMPEG=ON \
 -D WITH_1394=OFF \
 -D CPACK_BINARY_DEB=ON \
 -D BUILD_JAVA=OFF \
@@ -36,4 +41,6 @@ cmake \
 -D OPENCV_VERSION=${VERSION} \
 ..
 
-make -j8
+if [[ "$ONLY_CONFIGUTE" == "false" ]]; then
+    make -j"$(nproc)"
+fi
