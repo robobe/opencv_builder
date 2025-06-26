@@ -31,5 +31,5 @@ RUN apt update && apt install -y --no-install-recommends \
   
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3_pip \
+    python3-pip \
   && rm -rf /var/lib/apt/lists/*

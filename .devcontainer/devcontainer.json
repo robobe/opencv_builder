@@ -10,5 +10,5 @@
     },
     "runArgs": [
         "--gpus", "all"
-    fu]
+    ]
 }

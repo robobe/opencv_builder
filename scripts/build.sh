@@ -1,13 +1,6 @@
 version="4.10.0"
 folder="opencv"
-# mkdir $folder
-cd ${folder}
-# curl -L https://github.com/opencv/opencv/archive/${version}.zip -o opencv-${version}.zip
-# curl -L https://github.com/opencv/opencv_contrib/archive/${version}.zip -o opencv_contrib-${version}.zip
-# unzip opencv-${version}.zip
-# unzip opencv_contrib-${version}.zip
-# rm opencv-${version}.zip opencv_contrib-${version}.zip
-mkdir opencv-${version}/build
+
 cd opencv-${version}/build
 cmake \
 -D WITH_CUDA=ON \
