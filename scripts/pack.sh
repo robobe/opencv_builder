@@ -5,6 +5,7 @@ FOLDER=$2
 
 cd $FOLDER/opencv/opencv-${VERSION}/build
 
-make package ..
+suod make install
+sudo make package ..
 
 ls *.deb
