@@ -49,11 +49,21 @@
                 "cwd": "${workspaceFolder}/scripts"
             },
             "command": "./pack.sh",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
             "args": [
                 "${input:opencv_version}",
                 "${workspaceFolder}"
             ],
-            "problemMatcher": []
+            "dependsOn": [
+                "Build"
+            ],
+            "problemMatcher": [],
+            "isBackground": false
         },
         {
             "label": "Publish",
@@ -67,8 +77,20 @@
                 "${workspaceFolder}"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/scripts"
+            },
+            "command": "./clean.sh",
+            "args": [
+                "${input:opencv_version}",
+                "${workspaceFolder}"
+            ],
+            "problemMatcher": []
         }
-
     ],
     "inputs": [
         {
@@ -80,7 +102,6 @@
             ],
             "description": "Select opencv vesion",
             "default": "4.10"
-            
         }
     ]
 }

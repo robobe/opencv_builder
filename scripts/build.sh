@@ -8,6 +8,10 @@ if [ $# -eq 3 ]; then
 fi
 
 
+if [ ! -d "$FOLDER/opencv/opencv-${VERSION}/build" ]; then
+    mkdir $FOLDER/opencv/opencv-${VERSION}/build
+fi
+
 cd $FOLDER/opencv/opencv-${VERSION}/build
 cmake \
 -D WITH_CUDA=ON \
@@ -39,6 +43,7 @@ cmake \
 -D CPACK_PACKAGE_VERSION=${VERSION} \
 -D CPACK_DEBIAN_PACKAGE_VERSION=${VERSION}-1 \
 -D OPENCV_VERSION=${VERSION} \
+-D OPENCV_ENABLE_GIT_VERSION=OFF \
 ..
 
 if [[ "$ONLY_CONFIGUTE" == "false" ]]; then
