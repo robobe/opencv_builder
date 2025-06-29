@@ -19,19 +19,13 @@
     To override the "dirty" state in the version string, create a new tag after ensuring your working directory is clean (no uncommitted changes):
 
     ```bash
-    # Check for uncommitted changes
-    git status
+    #comit all and retag
 
-    # Add and commit any changes if needed
-    git add .
-    git commit -m "Finalize changes before tagging"
-
-    # Create a new tag (replace v4.10.0 with your desired tag)
     git tag v4.10.0
 
    
     ```
-
+    ![alt text](images/configure_after_tag.png)
 ---
 
 
