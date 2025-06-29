@@ -47,6 +47,7 @@ RUN apt-get update \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     ffmpeg \
+    libeigen3-dev \
   && rm -rf /var/lib/apt/lists/*
 
 ARG USERNAME=user

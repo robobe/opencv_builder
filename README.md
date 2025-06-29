@@ -1,5 +1,39 @@
 # Build Opencv with cuda support
 
+### Dirty
+
+!!! warning "dirty"
+    because i put the opencv under git control folder all git command working and the cmake take the VSC version
+    and we get some hash with dirty as opencv version
+    To solve it i create new TAG
+     
+    ![alt text](images/cofigure_before_tag.png)
+
+    ```bash
+    git describe --tags --dirty --always
+    #
+    4.10.0-2-gd1752e8-dirty
+    ```
+
+    ```bash
+    To override the "dirty" state in the version string, create a new tag after ensuring your working directory is clean (no uncommitted changes):
+
+    ```bash
+    # Check for uncommitted changes
+    git status
+
+    # Add and commit any changes if needed
+    git add .
+    git commit -m "Finalize changes before tagging"
+
+    # Create a new tag (replace v4.10.0 with your desired tag)
+    git tag v4.10.0
+
+   
+    ```
+
+---
+
 
 ### Build
 
